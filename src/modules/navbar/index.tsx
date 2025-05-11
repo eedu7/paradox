@@ -51,8 +51,10 @@ export const Navbar = () => {
                                             href={data.href}
                                             key={data.title}
                                             title={data.title}
-                                            children={data.description}
-                                        />
+                                            isActive={data.href === pathname}
+                                        >
+                                            {data.description}
+                                        </ListItem>
                                     ))}
                                 </div>
                             ))}
