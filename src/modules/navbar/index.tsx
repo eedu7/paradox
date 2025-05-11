@@ -96,7 +96,7 @@ interface ListItemProps {
 const ListItem = ({ href, className, title, children, isActive }: ListItemProps) => {
     return (
         <NavigationMenuLink asChild>
-            <a
+            <Link
                 href={href}
                 className={cn(
                     "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
@@ -106,7 +106,7 @@ const ListItem = ({ href, className, title, children, isActive }: ListItemProps)
             >
                 <div className="text-sm leading-none font-medium">{title}</div>
                 <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
-            </a>
+            </Link>
         </NavigationMenuLink>
     );
 };
