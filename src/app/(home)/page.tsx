@@ -1,3 +1,5 @@
-export default function Home() {
-    return <div>Hello, World</div>;
+import { UnderConstruction } from "@/components/UnderConstruction";
+
+export default function HomePage() {
+    return <UnderConstruction title="Home Page" />;
 }

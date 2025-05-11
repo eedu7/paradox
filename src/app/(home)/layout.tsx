@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "@/modules/navbar";
+import { NavigationBar } from "@/modules/navbar";
 import { AppWindowIcon } from "lucide-react";
 
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
@@ -9,7 +9,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 <div>
                     <AppWindowIcon />
                 </div>
-                <Navbar />
+                <NavigationBar />
             </header>
             <main className="flex-1">{children}</main>
             <footer></footer>
