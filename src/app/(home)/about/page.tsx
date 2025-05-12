@@ -1,6 +1,6 @@
 import React from "react";
-import { UnderConstruction } from "@/components/UnderConstruction";
+import { AboutUs } from "@/modules/about-us";
 
 export default function AboutPage() {
-    return <UnderConstruction title={"About Page"} />;
+    return <AboutUs />;
 }
