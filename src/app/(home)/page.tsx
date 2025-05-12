@@ -1,5 +1,10 @@
-import { UnderConstruction } from "@/components/UnderConstruction";
+import Interceptors from "undici-types/interceptors";
+import { BannerCarousel } from "@/modules/banner";
 
 export default function HomePage() {
-    return <UnderConstruction title="Home Page" />;
+    return (
+        <>
+            <BannerCarousel />
+        </>
+    );
 }

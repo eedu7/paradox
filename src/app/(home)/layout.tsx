@@ -5,7 +5,7 @@ import { AppWindowIcon } from "lucide-react";
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className="flex min-h-screen flex-col lg:p-2">
-            <header className="flex items-center justify-between">
+            <header className="flex items-center justify-between p-2">
                 <div>
                     <AppWindowIcon />
                 </div>
