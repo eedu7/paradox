@@ -21,18 +21,18 @@ export const EventCard = ({ title, description, imageSrc }: EventCardProps) => {
             className="grid grid-cols-3 p-2 opacity-90 outline transition-opacity hover:opacity-100"
             href={`/events/${title}`}
         >
-            <div>
+            <div className="flex items-center justify-center">
                 <Image
                     src={imageSrc}
                     alt={title}
-                    className="h-[120px] w-[140px] object-contain"
+                    className="object-contain md:h-[120px] md:w-[140px]"
                 />
             </div>
             <div className="col-span-2 w-full px-2 py-4">
                 <h1
                     className={cn(
                         poppins.className,
-                        "text-lg",
+                        "md:text-lg",
                         "bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent",
                     )}
                 >
