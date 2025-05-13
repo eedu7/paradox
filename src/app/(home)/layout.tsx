@@ -15,8 +15,8 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             <main className="flex-1">{children}</main>
             <Footer />
             <div className="flex items-center justify-center bg-gradient-to-r from-slate-500 to-slate-800 p-2">
-                <p className="flex items-center gap-1 text-sm text-white">
-                    Copyright <CopyrightIcon className="size-4" />
+                <p className="flex items-center gap-1 text-[10px] text-white md:text-sm">
+                    Copyright <CopyrightIcon className="size-2 md:size-4" />
                     <span className="font-bold">DEA Bahawalpur</span> {new Date().getFullYear()}. All Right Reserved.
                 </p>
             </div>

@@ -10,16 +10,15 @@ import { ExternalLinkIcon } from "lucide-react";
 export const Footer = () => {
     return (
         <footer className="flex min-h-[24rem] items-center justify-center bg-gradient-to-r from-slate-500 to-slate-800">
-            <div className="grid grid-cols-5 gap-4 p-2 md:p-8">
-                <div className="space-y-8">
-                    <div>
-                        <Image
-                            src={LogoImage}
-                            alt={"Logo"}
-                        />
-                    </div>
+            <div className="grid gap-1 p-2 md:gap-2 md:p-8 lg:grid-cols-5 lg:gap-4">
+                <div className="p-4">
+                    <Image
+                        src={LogoImage}
+                        alt={"Logo"}
+                        className="size-28 md:size-44"
+                    />
                 </div>
-                <div className="col-span-3 grid w-full grid-cols-4 gap-4 text-white">
+                <div className="col-span-3 grid w-full grid-cols-1 gap-4 text-white md:grid-cols-4">
                     <div className="flex flex-col gap-2">
                         <FooterHeading>Media & Highlights</FooterHeading>
                         {subNavItems[0].map(({ title, href }) => (
@@ -61,22 +60,22 @@ export const Footer = () => {
                         ))}
                     </div>
                 </div>
-                <div className="">
+                <div>
                     <div className="flex justify-start text-white">
                         <FooterHeading>Find us </FooterHeading>
                     </div>
                     <div className="flex flex-col gap-2 p-4">
-                        <p className="text-sm font-semibold text-white">
+                        <p className="text-xs font-semibold text-white">
                             {"District Education Authority, 20-C Model Town ‘A’ Bahawalpur"}
                         </p>
                         <a
-                            className="flex items-center gap-2 text-sm font-semibold text-white"
+                            className="flex items-center gap-2 text-[10px] font-semibold text-white xl:text-xs"
                             href="tel:(062)-9255115"
                         >
                             <span>(062) 9255115</span> <ExternalLinkIcon className="size-3" />
                         </a>
                         <a
-                            className="flex items-center gap-2 text-sm font-semibold text-white"
+                            className="flex items-center gap-2 text-[10px] font-semibold text-white xl:text-xs"
                             href="mailto:deabahawalpurpb.pk@gmail.com"
                         >
                             <span>deabahawalpurpb.pk@gmail.com</span>
