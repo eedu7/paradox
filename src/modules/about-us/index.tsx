@@ -18,11 +18,13 @@ export const AboutUs = () => {
                 <Card className="rounded-none">
                     <CardContent className="flex flex-col md:flex-row md:gap-x-4">
                         <CardTitle className="hidden"></CardTitle>
-                        <Image
-                            src={aboutUsData.imageSrc}
-                            alt={aboutUsData.title}
-                            className="h-[256px] w-[256px] lg:h-[384px] lg:w-[384px]"
-                        />
+                        <div className="flex items-center justify-center">
+                            <Image
+                                src={aboutUsData.imageSrc}
+                                alt={aboutUsData.title}
+                                className="h-[256px] w-[256px] lg:h-[384px] lg:w-[384px]"
+                            />
+                        </div>
                         <div className="mt-4 flex flex-col md:gap-y-4">
                             <h1
                                 className={cn(
