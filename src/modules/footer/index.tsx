@@ -1,26 +1,27 @@
 import React from "react";
-import { navbarItems, subNavItems } from "@/modules/navbar/constants";
+import { subNavItems } from "@/modules/navbar/constants";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import Image from "next/image";
+import LogoImage from "../../../public/assets/logo.jpg";
+import { ExternalLinkIcon } from "lucide-react";
 
 export const Footer = () => {
     return (
-        <footer className="flex min-h-[34rem] items-center justify-center bg-gradient-to-r from-slate-500 to-slate-800">
-            <div className="mx-auto grid max-w-7xl grid-cols-5 p-2 md:p-4">
-                <div className="col-span-3 grid w-full grid-cols-5 gap-4 text-white">
-                    <div className="flex flex-col gap-2">
-                        <FooterLinkHeading>Main Menu</FooterLinkHeading>
-                        {navbarItems.map(({ title, href }) => (
-                            <FooterLink
-                                key={href}
-                                href={href}
-                                title={title}
-                            />
-                        ))}
+        <footer className="min-h-[22 rem] flex items-center justify-center bg-gradient-to-r from-slate-500 to-slate-800">
+            <div className="grid grid-cols-5 gap-4 p-2 md:p-8">
+                <div className="space-y-8">
+                    <div>
+                        <Image
+                            src={LogoImage}
+                            alt={"Logo"}
+                        />
                     </div>
+                </div>
+                <div className="col-span-3 grid w-full grid-cols-4 gap-4 text-white">
                     <div className="flex flex-col gap-2">
-                        <FooterLinkHeading>Media & Highlights</FooterLinkHeading>
+                        <FooterHeading>Media & Highlights</FooterHeading>
                         {subNavItems[0].map(({ title, href }) => (
                             <FooterLink
                                 key={href}
@@ -30,7 +31,7 @@ export const Footer = () => {
                         ))}
                     </div>
                     <div className="flex flex-col gap-2">
-                        <FooterLinkHeading>Education & Schools</FooterLinkHeading>
+                        <FooterHeading>Education & Schools</FooterHeading>
                         {subNavItems[1].map(({ title, href }) => (
                             <FooterLink
                                 key={href}
@@ -40,7 +41,7 @@ export const Footer = () => {
                         ))}
                     </div>
                     <div className="flex flex-col gap-2">
-                        <FooterLinkHeading>Community</FooterLinkHeading>
+                        <FooterHeading>Community</FooterHeading>
                         {subNavItems[2].map(({ title, href }) => (
                             <FooterLink
                                 key={href}
@@ -50,7 +51,7 @@ export const Footer = () => {
                         ))}
                     </div>
                     <div>
-                        <FooterLinkHeading>Activities</FooterLinkHeading>
+                        <FooterHeading>Activities</FooterHeading>
                         {subNavItems[3].map(({ title, href }) => (
                             <FooterLink
                                 key={href}
@@ -60,12 +61,36 @@ export const Footer = () => {
                         ))}
                     </div>
                 </div>
+                <div className="">
+                    <div className="flex justify-start text-white">
+                        <FooterHeading>Find us </FooterHeading>
+                    </div>
+                    <div className="flex flex-col gap-2 p-4">
+                        <p className="text-sm font-semibold text-white">
+                            {"District Education Authority, 20-C Model Town ‘A’ Bahawalpur"}
+                        </p>
+                        <a
+                            className="flex items-center gap-2 text-sm font-semibold text-white"
+                            href="tel:(062)-9255115"
+                        >
+                            <span>(062) 9255115</span> <ExternalLinkIcon className="size-3" />
+                        </a>
+                        <a
+                            className="flex items-center gap-2 text-sm font-semibold text-white"
+                            href="mailto:deabahawalpurpb.pk@gmail.com"
+                        >
+                            <span>deabahawalpurpb.pk@gmail.com</span>
+
+                            <ExternalLinkIcon className="size-3" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </footer>
     );
 };
 
-const FooterLinkHeading = ({ children }: { children: React.ReactNode }) => {
+const FooterHeading = ({ children }: { children: React.ReactNode }) => {
     return <Label className="px-4 py-2 text-lg">{children}</Label>;
 };
 
