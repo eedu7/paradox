@@ -9,7 +9,7 @@ import { ExternalLinkIcon } from "lucide-react";
 
 export const Footer = () => {
     return (
-        <footer className="min-h-[22 rem] flex items-center justify-center bg-gradient-to-r from-slate-500 to-slate-800">
+        <footer className="flex min-h-[24rem] items-center justify-center bg-gradient-to-r from-slate-500 to-slate-800">
             <div className="grid grid-cols-5 gap-4 p-2 md:p-8">
                 <div className="space-y-8">
                     <div>
@@ -104,7 +104,7 @@ const FooterLink = ({ title, href }: FooterLinksProps) => {
         <Link href={href}>
             <Button
                 variant="ghost"
-                className="flex w-full justify-start underline underline-offset-4"
+                className="flex w-full cursor-pointer justify-start underline underline-offset-4"
             >
                 {title}
             </Button>
