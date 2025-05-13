@@ -18,7 +18,7 @@ const poppins = Poppins({
 export const EventCard = ({ title, description, imageSrc }: EventCardProps) => {
     return (
         <Link
-            className="grid grid-cols-3 border-b border-green-200 opacity-90 shadow shadow-green-100 transition-opacity hover:opacity-100 md:border-r"
+            className="grid grid-cols-3 border-b border-green-200 opacity-90 shadow shadow-md shadow-green-100 transition-opacity hover:opacity-100 md:border-r"
             href={`/events/${title}`}
         >
             <div className="flex items-center justify-center">
