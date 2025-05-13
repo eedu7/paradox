@@ -1,6 +1,6 @@
 import React from "react";
-import { UnderConstruction } from "@/components/UnderConstruction";
+import { EventsSection } from "@/modules/events";
 
 export default function EventsPage() {
-    return <UnderConstruction title={"Events Page"} />;
+    return <EventsSection />;
 }
