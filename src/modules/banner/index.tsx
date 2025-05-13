@@ -9,7 +9,6 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import { bannerImages } from "@/modules/banner/constants";
 import Autoplay from "embla-carousel-autoplay";
@@ -30,46 +29,44 @@ export const BannerCarousel = () => {
     }, [api, onHover]);
 
     return (
-        <Carousel
-            setApi={setApi}
-            className="mx-auto max-w-7xl"
-            opts={{
-                align: "start",
-                loop: true,
-            }}
-            plugins={[
-                Autoplay({
-                    playOnInit: true,
-                    stopOnInteraction: true,
-                    stopOnMouseEnter: true,
-                    delay: 3000,
-                }),
-            ]}
-        >
-            <CarouselContent>
-                {bannerImages.map(({ imageSrc, alt }) => (
-                    <CarouselItem
-                        key={alt}
-                        onMouseEnter={() => setOnHover(false)}
-                        onMouseLeave={() => setOnHover(true)}
-                    >
-                        <AspectRatio
-                            ratio={16 / 9}
-                            className="bg-muted"
-                        >
-                            <Image
-                                src={imageSrc}
-                                alt={alt}
-                                className="h-full w-full rounded-md object-cover"
-                            />
-                        </AspectRatio>
-                    </CarouselItem>
-                ))}
-            </CarouselContent>
-            <div className="hidden xl:block">
-                <CarouselPrevious />
-                <CarouselNext />
+        <section className="bg-accent w-full py-8 md:py-2">
+            <div className="mx-auto max-w-7xl">
+                <Carousel
+                    setApi={setApi}
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
+                    plugins={[
+                        Autoplay({
+                            playOnInit: true,
+                            stopOnInteraction: true,
+                            stopOnMouseEnter: true,
+                            delay: 3000,
+                        }),
+                    ]}
+                >
+                    <CarouselContent>
+                        {bannerImages.map(({ imageSrc, alt }) => (
+                            <CarouselItem
+                                key={alt}
+                                onMouseEnter={() => setOnHover(false)}
+                                onMouseLeave={() => setOnHover(true)}
+                            >
+                                <Image
+                                    src={imageSrc}
+                                    alt={alt}
+                                    className="h-[320px] w-full object-fill md:h-[768px]"
+                                />
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <div className="hidden xl:block">
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </div>
+                </Carousel>
             </div>
-        </Carousel>
+        </section>
     );
 };
