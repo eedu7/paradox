@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { aboutUsData } from "@/modules/about-us/constants";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -12,8 +14,14 @@ const poppins = Poppins({
 });
 
 export const AboutUs = () => {
+    const pathname = usePathname();
     return (
-        <section className="flex min-h-[34rem] flex-col items-center justify-center bg-gradient-to-r from-gray-700 to-black">
+        <section
+            className={cn(
+                "flex min-h-[34rem] flex-col items-center justify-center bg-gradient-to-r from-gray-700 to-black",
+                pathname === "/about" && "lg:min-h-[48rem] xl:min-h-[56rem]",
+            )}
+        >
             <div className="mx-auto flex max-w-7xl items-center justify-center px-2 md:p-4 md:py-10">
                 <Card className="rounded-none border-none bg-transparent shadow-none outline-none">
                     <CardContent className="flex flex-col md:flex-row md:gap-x-4">
@@ -39,14 +47,20 @@ export const AboutUs = () => {
                             <p className="text-xs tracking-wider text-white md:text-sm lg:text-base">
                                 {aboutUsData.description[0]}
                             </p>
-                            <div className="flex justify-end">
-                                <Link
-                                    href="/about"
-                                    className="flex-end hover:text- text-indigo-500 underline underline-offset-4 hover:text-indigo-600"
-                                >
-                                    Learn more
-                                </Link>
-                            </div>
+                            {pathname === "/about" ? (
+                                <p className="text-xs tracking-wider text-white md:text-sm lg:text-base">
+                                    {aboutUsData.description[1]}
+                                </p>
+                            ) : (
+                                <div className="flex justify-end">
+                                    <Link
+                                        href="/about"
+                                        className="flex-end hover:text- text-indigo-500 underline underline-offset-4 hover:text-indigo-600"
+                                    >
+                                        Learn more
+                                    </Link>
+                                </div>
+                            )}
                         </div>
                     </CardContent>
                 </Card>
