@@ -13,7 +13,7 @@ export const EventsSection = () => {
     const data = getAllEvents();
 
     return (
-        <section className="mx-auto max-w-7xl">
+        <section className="mx-auto flex min-h-[34rem] max-w-7xl flex-col items-center justify-center">
             <div className="px-2 py-4 md:px-4 md:py-6 lg:py-10">
                 <h1
                     className={cn(
