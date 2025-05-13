@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import LogoImage from "../../../public/assets/logo.jpg";
-import { ExternalLinkIcon, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "lucide-react";
+import { ExternalLinkIcon } from "lucide-react";
+import { RiFacebookFill, RiInstagramFill, RiTwitterXFill, RiYoutubeFill } from "@remixicon/react";
 
 export const Footer = () => {
     return (
@@ -88,30 +89,30 @@ export const Footer = () => {
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="hover:text-blue-500"
+                            className="hover:text-[#1877f2]"
                         >
-                            <FacebookIcon />
+                            <RiFacebookFill />
                         </Button>
                         <Button
                             variant="ghost"
                             size="icon"
                             className="hover:text-pink-500"
                         >
-                            <InstagramIcon />
+                            <RiInstagramFill />
                         </Button>
                         <Button
                             variant="ghost"
                             size="icon"
                             className="hover:text-red-500"
                         >
-                            <YoutubeIcon />
+                            <RiYoutubeFill />
                         </Button>
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="hover:text-sky-500"
+                            className="hover:text-[#14171a]"
                         >
-                            <TwitterIcon />
+                            <RiTwitterXFill />
                         </Button>
                     </div>
                 </div>
