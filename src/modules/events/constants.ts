@@ -107,7 +107,7 @@ export const getAllEvents = (): EventPreview[] => {
     return Object.entries(eventsData).map(([key, event]) => ({
         key,
         title: event.title,
-        firstDescription: event.description?.[0],
+        firstDescription: event.description?.[0] ?? "",
         imageSrc: event.imageSrc,
     }));
 };
