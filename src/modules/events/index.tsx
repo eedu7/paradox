@@ -13,12 +13,12 @@ export const EventsSection = () => {
     const data = getAllEvents();
 
     return (
-        <section className="mx-auto max-w-(--breakpoint-xl) px-2 py-10 md:p-4">
-            <div>
+        <section className="mx-auto max-w-7xl">
+            <div className="px-2 py-4 md:px-4 md:py-6 lg:py-10">
                 <h1
                     className={cn(
                         poppins.className,
-                        "text-xl md:text-2xl",
+                        "text-lg md:text-2xl",
                         "bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent",
                     )}
                 >
