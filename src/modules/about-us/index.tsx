@@ -13,7 +13,7 @@ const poppins = Poppins({
 
 export const AboutUs = () => {
     return (
-        <section className="bg-gradient-to-r from-gray-700 to-black">
+        <section className="flex min-h-[34rem] flex-col items-center justify-center bg-gradient-to-r from-gray-700 to-black">
             <div className="mx-auto flex max-w-7xl items-center justify-center px-2 md:p-4 md:py-10">
                 <Card className="rounded-none border-none bg-transparent shadow-none outline-none">
                     <CardContent className="flex flex-col md:flex-row md:gap-x-4">

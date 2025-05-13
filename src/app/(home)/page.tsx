@@ -1,6 +1,7 @@
 import { BannerCarousel } from "@/modules/banner";
 import { AboutUs } from "@/modules/about-us";
 import { EventsSection } from "@/modules/events";
+import { HowWeWork } from "@/modules/how-we-work";
 
 export default function HomePage() {
     return (
@@ -9,6 +10,7 @@ export default function HomePage() {
             <AboutUs />
             <EventsSection />
             {/*<MinisterMsg />*/}
+            <HowWeWork />
         </>
     );
 }
