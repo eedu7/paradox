@@ -69,14 +69,26 @@ export const eventsData: EventsData = {
     [EventKeyEnum.PrizeDistribution]: {
         title: "Annual prize distribution ceremony",
         imageSrc: AnnualPrizeCeremonyImage,
+        description: [
+            "STEAM Pakistan is an initiative of the Ministry of Federal Education and Professional Training (MoFEPT) that aims to advance secondary school-aged girls’ access to Science, Technology, Engineering, Arts, and Mathematics education in Pakistan.",
+            "The goal of this initiative is to equip and empower government schools to deliver world class STEAM education by offering back-end technical support and working towards policy reforms which embed the initiative’s learning in the existing state structures.",
+        ],
     },
     [EventKeyEnum.SportsGala]: {
         title: "Annual sports gala",
         imageSrc: AnnualSportsGalaImage,
+        description: [
+            "STEAM Pakistan is an initiative of the Ministry of Federal Education and Professional Training (MoFEPT) that aims to advance secondary school-aged girls’ access to Science, Technology, Engineering, Arts, and Mathematics education in Pakistan.",
+            "The goal of this initiative is to equip and empower government schools to deliver world class STEAM education by offering back-end technical support and working towards policy reforms which embed the initiative’s learning in the existing state structures.",
+        ],
     },
     [EventKeyEnum.JashnESTEMLahore]: {
         title: "Jashn-e-STEM Lahore 2025",
         imageSrc: JashnESTEMLahoreImage,
+        description: [
+            "STEM Pakistan is an initiative of the Ministry of Federal Education and Professional Training (MoFEPT) that aims to advance secondary school-aged girls’ access to Science, Technology, Engineering, Arts, and Mathematics education in Pakistan.",
+            "The goal of this initiative is to equip and empower government schools to deliver world class STEAM education by offering back-end technical support and working towards policy reforms which embed the initiative’s learning in the existing state structures.",
+        ],
     },
 };
 
@@ -84,9 +96,18 @@ export const getEventByKey = (key: EventKeyEnum): EventItem | undefined => {
     return eventsData[key];
 };
 
-export const getAllEvents = (): Array<EventItem & { key: string }> => {
+interface EventPreview {
+    key: string;
+    title: string;
+    firstDescription: string;
+    imageSrc: StaticImageData;
+}
+
+export const getAllEvents = (): EventPreview[] => {
     return Object.entries(eventsData).map(([key, event]) => ({
-        ...event,
         key,
+        title: event.title,
+        firstDescription: event.description?.[0],
+        imageSrc: event.imageSrc,
     }));
 };

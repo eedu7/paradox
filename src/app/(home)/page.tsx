@@ -1,13 +1,14 @@
 import { BannerCarousel } from "@/modules/banner";
-import { MinisterMsg } from "@/modules/minister-msg";
 import { AboutUs } from "@/modules/about-us";
+import { EventsSection } from "@/modules/events";
 
 export default function HomePage() {
     return (
         <>
             <BannerCarousel />
             <AboutUs />
-            <MinisterMsg />
+            <EventsSection />
+            {/*<MinisterMsg />*/}
         </>
     );
 }
