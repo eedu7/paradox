@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import LogoImage from "../../../public/assets/logo.jpg";
-import { ExternalLinkIcon } from "lucide-react";
+import { ExternalLinkIcon, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "lucide-react";
 
 export const Footer = () => {
     return (
@@ -82,6 +82,37 @@ export const Footer = () => {
 
                             <ExternalLinkIcon className="size-3" />
                         </a>
+                    </div>
+                    {/*TODO: Add links to social media*/}
+                    <div className="text-white">
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="hover:text-blue-500"
+                        >
+                            <FacebookIcon />
+                        </Button>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="hover:text-pink-500"
+                        >
+                            <InstagramIcon />
+                        </Button>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="hover:text-red-500"
+                        >
+                            <YoutubeIcon />
+                        </Button>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="hover:text-sky-500"
+                        >
+                            <TwitterIcon />
+                        </Button>
                     </div>
                 </div>
             </div>
