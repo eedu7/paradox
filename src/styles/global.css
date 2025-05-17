@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@layer base {
+    :root {
+        --color-ocean: #22577A;
+        --color-aqua: #38A3A5;
+        --color-mint: #57CC99;
+        --color-light-mint: #80ED99;
+        --color-pale-green: #C7F9CC;
+    }
+}

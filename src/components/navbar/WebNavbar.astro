@@ -1,4 +1,5 @@
 ---
+import { cn } from "../../utils/cn";
 const items: { title: string; href: string; }[] = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
@@ -11,10 +12,10 @@ const items: { title: string; href: string; }[] = [
 const pathname = Astro.url.pathname;
 ---
 
-<ul class="flex gap-x-4">
+<ul class="flex gap-x-2">
     {
         items.map(({ href, title }) => (
-            <li>
+            <li class={cn("p-2  hover:bg-slate-100 transform skew-x-[-20deg] font-medium text-slate-600", pathname === href && "bg-[var(--color-ocean)] text-slate-100 ")}>
                 <a href={href}>{title}</a>
             </li>
         ))
