@@ -1,0 +1,23 @@
+---
+const items: { title: string; href: string; }[] = [
+    { title: "Home", href: "/" },
+    { title: "About", href: "/about" },
+    { title: "Exam Emergency", href: "/exam-emergency" },
+    { title: "Notification", href: "/notification" },
+    { title: "Scouts", href: "/scouts" },
+    { title: "Events", href: "/events" },
+    { title: "Contact", href: "/contact" }];
+
+const pathname = Astro.url.pathname;
+---
+
+<ul class="flex gap-x-4">
+    {
+        items.map(({ href, title }) => (
+            <li>
+                <a href={href}>{title}</a>
+            </li>
+        ))
+    }
+
+</ul>

@@ -1,0 +1,12 @@
+---
+import MoboNavbar from "./MoboNavbar.astro";
+import WebNavbar from "./WebNavbar.astro";
+---
+<nav>
+    <div class="hidden lg:block">
+        <WebNavbar />
+    </div>
+    <div class="lg:hidden block">
+        <MoboNavbar />
+    </div>
+</nav>
