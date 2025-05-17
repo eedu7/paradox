@@ -1,24 +1,67 @@
 ---
 import { cn } from "../../utils/cn";
-const items: { title: string; href: string; }[] = [
-    { title: "Home", href: "/" },
-    { title: "About", href: "/about" },
-    { title: "Exam Emergency", href: "/exam-emergency" },
-    { title: "Notification", href: "/notification" },
-    { title: "Scouts", href: "/scouts" },
-    { title: "Events", href: "/events" },
-    { title: "Contact", href: "/contact" }];
+
+interface Items {
+    title: string;
+    href: string;
+}
+
+const items: Items[][] = [
+    [
+        { title: "Home", href: "/" },
+        { title: "About", href: "/about" },
+        { title: "Exam Emergency", href: "/exam-emergency" },
+        { title: "Notification", href: "/notification" },
+        { title: "Scouts", href: "/scouts" },
+        { title: "Events", href: "/events" },
+        { title: "Contact", href: "/contact" }
+    ], [
+
+        { title: "Gallery", href: "/gallery" },
+        { title: "Articles", href: "/articles" },
+        { title: "Initiatives", href: "/initiatives" },
+        { title: "Enrollment Campaign", href: "/enrollment-campaign" },
+        { title: "Complaints", href: "/complaints" },
+        { title: "Model Schools", href: "/model-schools" },
+        { title: "Sports", href: "/sports" },
+        { title: "Team", href: "/team" }
+    ]
+];
+
+
 
 const pathname = Astro.url.pathname;
+const isInSecondGroup = items[1].some(item => item.href === pathname);
 ---
 
-<ul class="flex gap-x-2">
+<ul class="flex items-center text-[var(--color-ocean)] font-medium">
     {
-        items.map(({ href, title }) => (
-            <li class={cn("p-2  hover:bg-slate-100 transform skew-x-[-20deg] font-medium text-slate-600", pathname === href && "bg-[var(--color-ocean)] text-slate-100 ")}>
-                <a href={href}>{title}</a>
+        items[0].map(({ title, href }) => (
+            <li class={cn("link link-hover underline-offset-4 rounded-sm  p-2", href === pathname && "bg-[var(--color-ocean)] text-white")}>
+                <a href={href}>
+                    {title}
+                </a>
             </li>
         ))
     }
-
+    <li class="group relative p-2">
+        <div>
+            <p class={cn(isInSecondGroup && "bg-[var(--color-ocean)] rounded-sm text-white", "underline-offset-4  p-2")}>
+                More</p>
+        </div>
+        <div
+            class="absolute top-4 right-0 scale-0 group-hover:scale-100 transition-all ease-in-out duration-300">
+            <ul class="flex flex-col items-start justify-center  w-48  border rounded-md p-2 relative top-10">
+                {
+                    items[1].map(({ title, href }) => (
+                        <li class={cn("link link-hover rounded-sm w-full underline-offset-4 p-2", href === pathname && "bg-[var(--color-ocean)]  text-white")}>
+                            <a href={href}>
+                                {title}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </li>
 </ul>
