@@ -1,34 +1,6 @@
 ---
 import { cn } from "../../utils/cn";
-
-interface Items {
-    title: string;
-    href: string;
-}
-
-const items: Items[][] = [
-    [
-        { title: "Home", href: "/" },
-        { title: "About", href: "/about" },
-        { title: "Exam Emergency", href: "/exam-emergency" },
-        { title: "Notification", href: "/notification" },
-        { title: "Scouts", href: "/scouts" },
-        { title: "Events", href: "/events" },
-        { title: "Contact", href: "/contact" }
-    ], [
-
-        { title: "Gallery", href: "/gallery" },
-        { title: "Articles", href: "/articles" },
-        { title: "Initiatives", href: "/initiatives" },
-        { title: "Enrollment Campaign", href: "/enrollment-campaign" },
-        { title: "Complaints", href: "/complaints" },
-        { title: "Model Schools", href: "/model-schools" },
-        { title: "Sports", href: "/sports" },
-        { title: "Team", href: "/team" }
-    ]
-];
-
-
+import { items } from "./constants";
 
 const pathname = Astro.url.pathname;
 const isInSecondGroup = items[1].some(item => item.href === pathname);
@@ -37,7 +9,7 @@ const isInSecondGroup = items[1].some(item => item.href === pathname);
 <ul class="flex items-center text-[var(--color-ocean)] font-medium">
     {
         items[0].map(({ title, href }) => (
-            <li class={cn("link link-hover underline-offset-4 rounded-sm  p-2", href === pathname && "bg-[var(--color-ocean)] text-white")}>
+            <li class={cn("link link-hover underline-offset-4 rounded-sm  p-2", href === pathname && "bg-[var(--color-ocean)] underline text-white")}>
                 <a href={href}>
                     {title}
                 </a>
@@ -55,7 +27,7 @@ const isInSecondGroup = items[1].some(item => item.href === pathname);
                 {
                     items[1].map(({ title, href }) => (
                         <a href={href}
-                           class={cn("link link-hover rounded-sm w-full underline-offset-4 p-2", href === pathname && "bg-[var(--color-ocean)]  text-white")}>
+                           class={cn("link link-hover rounded-sm w-full underline-offset-4 p-2", href === pathname && "bg-[var(--color-ocean)] underline  text-white")}>
                             <p>
                                 {title}
                             </p>

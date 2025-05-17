@@ -1,1 +1,39 @@
-<p>Mobile Navbar</p>
+---
+import { items } from "./constants";
+import { cn } from "../../utils/cn";
+
+const pathname = Astro.url.pathname;
+---
+<div class="drawer drawer-end">
+    <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+        <label for="my-drawer"
+               class="drawer-button btn bg-[var(--color-ocean)] text-white">
+            :
+        </label>
+    </div>
+    <div class="drawer-side">
+        <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay" />
+        <ul class="menu bg-base-200  min-h-full w-80 lg:p-4">
+            {
+                items[0].map(({ title, href }) => (
+                    <li class={cn("link link-hover underline-offset-2 lg:underline-offset-4 rounded-sm lg:p-2", href === pathname && "bg-[var(--color-ocean)] text-white underline")}>
+                        <a href={href}>
+                            {title}
+                        </a>
+                    </li>
+                ))
+            }
+            {
+                items[1].map(({ title, href }) => (
+                    <li class={cn("link link-hover underline-offset-2 lg:underline-offset-4 rounded-sm  lg:p-2", href === pathname && "bg-[var(--color-ocean)] text-white underline")}>
+                        <a href={href}>
+                            {title}
+                        </a>
+                    </li>
+                ))
+            }
+
+        </ul>
+    </div>
+</div>
