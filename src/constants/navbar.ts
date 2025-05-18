@@ -11,7 +11,7 @@ interface SubNavbarLinks {
 export const navbarItems: NavbarItems[] = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
-    { title: "Exam Emergency", href: "/exam-emergency" },
+    { title: "Exams Emergency", href: "/exams-emergency" },
     { title: "Notification", href: "/notification" },
     { title: "Scouts", href: "/scouts" },
     { title: "Events", href: "/events" },

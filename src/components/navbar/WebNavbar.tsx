@@ -32,7 +32,7 @@ export const WebNavbar = ({ pathname }: Props) => {
                     <NavigationMenuTrigger
                         className={cn(
                             getAllSubNavHrefs().includes(pathname) && "bg-accent text-accent-foreground",
-                            "cursor-pointer",
+                            "cursor-pointer focus:bg-transparent active:bg-transparent",
                         )}
                     >
                         More
