@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
 import { DownloadIcon } from "lucide-react";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { notifications } from "@/constants/notifications";
 
 export const Notification = () => {
@@ -15,7 +16,7 @@ export const Notification = () => {
         document.body.removeChild(link);
     };
     return (
-        <Table>
+        <Table className="p-2">
             <TableCaption>A list of notifications</TableCaption>
             <TableHeader>
                 <TableRow>
