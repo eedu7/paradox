@@ -12,7 +12,7 @@ interface Props {
 export default function PagesLayout({ children }: Props) {
     return (
         <div className="flex min-h-screen flex-col">
-            <header>
+            <header className="border-b">
                 <div className="mx-auto flex max-w-7xl items-center justify-between p-2">
                     <Link href="/">
                         <Image
