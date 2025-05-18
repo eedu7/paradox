@@ -5,7 +5,6 @@ interface NavbarItems {
 
 interface SubNavbarLinks {
     title: string;
-    href: string;
     links: NavbarItems[];
 }
 
@@ -22,38 +21,36 @@ export const navbarItems: NavbarItems[] = [
 export const subNavbarLinks: SubNavbarLinks[] = [
     {
         title: "Media",
-        href: "/media",
         links: [
-            { title: "Gallery", href: "/Gallery" },
-            { title: "Articles", href: "/articles" },
+            { title: "Gallery", href: "/media/gallery" },
+            { title: "Articles", href: "/media/articles" },
         ],
     },
     {
         title: "Programs",
-        href: "/programs",
         links: [
-            { title: "Initiatives", href: "/Initiatives" },
-            { title: "Enrollment Campaign", href: "/enrollment-campaign" },
+            { title: "Initiatives", href: "/program/initiatives" },
+            { title: "Enrollment Campaign", href: "/program/enrollment-campaign" },
         ],
     },
     {
         title: "Support",
-        href: "/support",
-        links: [{ title: "Complaints", href: "/complaints" }],
+        links: [{ title: "Complaints", href: "/support/complaints" }],
     },
     {
         title: "Institutions",
-        href: "/institutions",
-        links: [{ title: "Model Schools", href: "/model-schools" }],
+        links: [{ title: "Model Schools", href: "/institutions/model-schools" }],
     },
     {
         title: "Activities",
-        href: "/activities",
-        links: [{ title: "Sports", href: "/sports" }],
+        links: [{ title: "Sports", href: "/activities/sports" }],
     },
     {
         title: "Team",
-        href: "/team",
         links: [{ title: "Team", href: "/team" }],
     },
 ];
+
+export const getAllSubNavHrefs = (): string[] => {
+    return subNavbarLinks.flatMap((item) => item.links.map((link) => link.href));
+};

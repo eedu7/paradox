@@ -1,13 +1,16 @@
 import React from "react";
 import {
     NavigationMenu,
+    NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuList,
+    NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { navbarItems } from "@/constants/navbar";
+import { getAllSubNavHrefs, navbarItems, subNavbarLinks } from "@/constants/navbar";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
 
 interface Props {
     pathname: string;
@@ -25,6 +28,37 @@ export const WebNavbar = ({ pathname }: Props) => {
                         isActive={href === pathname}
                     />
                 ))}
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger
+                        className={cn(
+                            getAllSubNavHrefs().includes(pathname) && "bg-accent text-accent-foreground",
+                            "cursor-pointer",
+                        )}
+                    >
+                        More
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="flex w-[720px] gap-x-4">
+                        {subNavbarLinks.map(({ title, links }, index) => (
+                            <div key={`${title}_${index}`}>
+                                <Label className={cn("text-accent-foreground px-4 py-2 text-xs")}>{title}</Label>
+                                <div>
+                                    {links.map(({ href, title }) => (
+                                        <Link
+                                            key={`${href}_${title}`}
+                                            href={href}
+                                            className={cn(
+                                                navigationMenuTriggerStyle(),
+                                                href === pathname && "bg-accent text-accent-foreground",
+                                            )}
+                                        >
+                                            {title}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
     );
