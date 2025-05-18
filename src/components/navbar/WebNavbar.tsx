@@ -40,7 +40,7 @@ export const WebNavbar = ({ pathname }: Props) => {
                     <NavigationMenuContent className="flex w-[720px] gap-x-4">
                         {subNavbarLinks.map(({ title, links }, index) => (
                             <div key={`${title}_${index}`}>
-                                <Label className={cn("text-accent-foreground px-4 py-2 text-xs")}>{title}</Label>
+                                <Label className="text-accent-foreground px-4 py-2 text-xs">{title}</Label>
                                 <div>
                                     {links.map(({ href, title }) => (
                                         <Link

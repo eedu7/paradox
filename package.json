@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:ngrok": "ngrok http --url=longhorn-talented-formerly.ngrok-free.app 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

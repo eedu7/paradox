@@ -12,7 +12,7 @@ export const Navbar = () => {
     const pathname = usePathname();
 
     if (isMobile) {
-        return <MobileNavbar />;
+        return <MobileNavbar pathname={pathname} />;
     } else {
         return <WebNavbar pathname={pathname} />;
     }
