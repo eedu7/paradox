@@ -17,7 +17,7 @@ export const Notification = () => {
     };
     return (
         <Table className="p-2">
-            <TableCaption>A list of notifications</TableCaption>
+            <TableCaption>List of downloadable notifications</TableCaption>
             <TableHeader>
                 <TableRow>
                     <TableHead className="font-semibold">No.</TableHead>
