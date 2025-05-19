@@ -13,7 +13,7 @@ export const VisionBlog = () => {
         <div className="space-y-8 rounded-2xl bg-white p-6 shadow-md">
             <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-4">
                 <div className="space-y-6 text-base leading-relaxed text-gray-700 md:col-span-3">
-                    <h1 className={cn(playfair.className, "text-3xl font-semibold text-gray-900")}>Vision</h1>
+                    <h1 className={cn(playfair.className, "text-primary text-3xl font-semibold")}>Vision</h1>
                     <p className={inter.className}>
                         By the year 2025 Pakistan Scouts Association with 01 million membership will be a dynamics, self
                         reliant, co-educational youth organization extending to all sectors of the society providing

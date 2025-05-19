@@ -19,7 +19,7 @@ export const FirstChiefScoutOfPakistanBlog = () => {
         <div className="space-y-8 rounded-2xl bg-white p-6 shadow-md">
             <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-4">
                 <div className="space-y-6 text-base leading-relaxed text-gray-700 md:col-span-3">
-                    <h1 className={cn(playfair.className, "text-3xl font-semibold text-gray-900")}>
+                    <h1 className={cn(playfair.className, "text-primary text-3xl font-semibold")}>
                         First Chief Scout of Pakistan
                     </h1>
                     <p className={inter.className}>
