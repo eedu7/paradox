@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar";
 
 import LogoImage from "../../../public/assets/icons/Logo.png";
 import Link from "next/link";
+import { Footer } from "@/components/footer";
 
 interface Props {
     children: React.ReactNode;
@@ -25,7 +26,7 @@ export default function PagesLayout({ children }: Props) {
                 </div>
             </header>
             <main className="flex-1">{children}</main>
-            <footer></footer>
+            <Footer />
         </div>
     );
 }
