@@ -1,7 +1,12 @@
 import React from "react";
+import { EventsView } from "@/components/events";
 
 export default function EventsPage() {
     return (
-        <div>EventsPage</div>
+        <section className="px-2 py-12">
+            <div className="mx-auto max-w-4xl">
+                <EventsView />
+            </div>
+        </section>
     );
 }
