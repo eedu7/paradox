@@ -22,14 +22,14 @@ export const OurMissionBlog = () => {
                         guided by the scout promise and law.
                     </p>
                     <div>
-                        <h4 className="text-xl font-semibold text-gray-800">Scout Promise</h4>
+                        <h4 className={cn(playfair.className, "text-primary text-lg font-bold")}>Scout Promise</h4>
                         <p className={inter.className}>
                             I will do my best to do duty to ALLAH and his last Prophet Muhammad P.B.U.H and Pakistan, to
                             help others and to keep the Scout Law.
                         </p>
                     </div>
                     <div>
-                        <h4 className="text-xl font-semibold text-gray-800">Scout Law</h4>
+                        <h4 className={cn(playfair.className, "text-primary text-lg font-bold")}>Scout Law</h4>
                         <p className={inter.className}>
                             A scout is trustworthy, loyal and obedient, courteous and helpful, friend to all and brother
                             to every other scout, kind and courageous, thrifty, clean and cheerful.
