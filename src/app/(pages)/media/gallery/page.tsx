@@ -1,7 +1,12 @@
 import React from "react";
+import { Gallery } from "@/components/gallery";
 
 export default function GalleryPage() {
     return (
-        <div>GalleryPage</div>
+        <section className="px-2 py-12">
+            <div className="mx-auto max-w-7xl">
+                <Gallery />
+            </div>
+        </section>
     );
 }
