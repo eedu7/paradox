@@ -40,6 +40,7 @@ export const OurMissionBlog = () => {
                     <Image
                         src={OurMissionImage}
                         alt="Our mission image"
+                        title="Our mission image"
                         className="h-auto w-64 rounded-xl object-contain shadow-sm"
                     />
                 </div>

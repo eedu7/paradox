@@ -25,7 +25,8 @@ export const VisionBlog = () => {
                 <div className="flex h-full items-center justify-center">
                     <Image
                         src={VisionImage}
-                        alt="Vision Image"
+                        alt="Our Vision"
+                        title="Our Vision"
                         className="h-auto w-64 rounded-xl object-contain shadow-sm"
                     />
                 </div>

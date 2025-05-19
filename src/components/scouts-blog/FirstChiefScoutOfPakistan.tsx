@@ -44,6 +44,7 @@ export const FirstChiefScoutOfPakistanBlog = () => {
                     <Image
                         src={FirstChiefScoutOfPakistanImage}
                         alt="First Chief Scout of Pakistan"
+                        title="First Chief Scout of Pakistan"
                         className="h-auto w-64 rounded-xl object-contain shadow-sm"
                     />
                 </div>

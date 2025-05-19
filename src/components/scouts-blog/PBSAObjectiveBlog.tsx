@@ -50,7 +50,8 @@ export const PBSAObjectiveBlog = () => {
                 <div className="flex h-full items-center justify-center">
                     <Image
                         src={PBSAObjectiveImage}
-                        alt="PBSA Objective Image"
+                        alt="PBSA's Objective"
+                        title="PBSA's Objective"
                         className="h-auto w-64 rounded-xl object-contain shadow-sm"
                     />
                 </div>

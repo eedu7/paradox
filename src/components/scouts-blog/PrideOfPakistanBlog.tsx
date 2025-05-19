@@ -27,6 +27,7 @@ export const PrideOfPakistanBlog = () => {
                     <Image
                         src={PrideOfPakistanImage}
                         alt="Pride of Pakistan"
+                        title="Pride of Pakistan"
                         className="h-auto w-64 rounded-xl object-contain shadow-sm"
                     />
                 </div>
