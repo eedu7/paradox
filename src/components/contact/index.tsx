@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Poppins } from "next/font/google";
+import Link from "next/link";
 
 const poppins = Poppins({
     weight: ["700"],
@@ -13,7 +14,7 @@ const poppins = Poppins({
 export const ContactUsView = () => {
     return (
         <section className="mx-auto grid max-w-7xl grid-cols-1 space-y-8 px-2 py-12 md:grid-cols-2">
-            <div className="flex flex-1 flex-col items-center justify-center">
+            <div className="flex flex-1 flex-col items-center justify-start py-2">
                 <h1 className={cn(poppins.className, "text-xl lg:text-4xl")}>Contact Us</h1>
                 <div className="space-y-4 p-4 text-sm">
                     <p>
@@ -71,13 +72,22 @@ export const ContactUsView = () => {
                             />
                         </div>
                     </CardContent>
-                    <CardFooter>
+                    <CardFooter className="flex items-center gap-2">
                         <Button
                             type="submit"
-                            className="w-full cursor-pointer"
+                            className="cursor-pointer"
                         >
-                            Send a message
+                            Send message
                         </Button>
+                        <Link href="/support/complaints">
+                            <Button
+                                variant="outline"
+                                type="button"
+                                className="cursor-pointer"
+                            >
+                                Have a complain?
+                            </Button>
+                        </Link>
                     </CardFooter>
                 </Card>
             </form>

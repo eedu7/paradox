@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Complaint {
+  id                      String   @id @default(cuid())
+  name                    String
+  phone                   String
+  date                    String
+  personComplainedAgainst String
+  incidentDescription     String
+  expectedResolution      String
+  // incidentDescription     String   @db.Text  // Using Text is not supported for Sqlite
+  // expectedResolution      String   @db.Text
+  createdAt               DateTime @default(now())
+
+  @@map("complaints")
+}
