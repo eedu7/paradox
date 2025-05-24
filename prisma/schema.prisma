@@ -7,8 +7,17 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  password  String
+  createdAt DateTime @default(now())
+
+  @@map("users")
 }
 
 model Complaint {
@@ -17,11 +26,20 @@ model Complaint {
   phone                   String
   date                    String
   personComplainedAgainst String
-  incidentDescription     String
-  expectedResolution      String
-  // incidentDescription     String   @db.Text  // Using Text is not supported for Sqlite
-  // expectedResolution      String   @db.Text
+  incidentDescription     String   @db.Text
+  expectedResolution      String   @db.Text
   createdAt               DateTime @default(now())
 
   @@map("complaints")
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+
+  @@map("contacts")
 }

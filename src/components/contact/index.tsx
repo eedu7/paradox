@@ -1,17 +1,43 @@
+"use client";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const poppins = Poppins({
     weight: ["700"],
     subsets: ["latin"],
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const formSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string().email(),
+    message: z.string(),
+});
+
 export const ContactUsView = () => {
+    const form = useForm<z.infer<typeof formSchema>>({
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            message: "",
+        },
+    });
+
+    const onSubmit = (values: z.infer<typeof formSchema>) => {
+        alert(JSON.stringify(values));
+    };
+
     return (
         <section className="mx-auto grid max-w-7xl grid-cols-1 space-y-8 px-2 py-12 md:grid-cols-2">
             <div className="flex flex-1 flex-col items-center justify-start py-2">
@@ -36,61 +62,110 @@ export const ContactUsView = () => {
                     </p>
                 </div>
             </div>
-            <form>
-                <Card className="bg-white">
-                    <CardHeader>
-                        <CardTitle className={cn("text-primary text-lg", poppins.className)}>Get in Touch</CardTitle>
-                        <CardDescription className="text-secondary-foreground">
-                            You can reach us anytime
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4 md:space-y-8">
-                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                            <input
-                                placeholder="First name"
-                                name="firstName"
-                                type="text"
-                                className="w-full rounded-xl border p-2 md:px-4 md:py-2"
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                    <Card className="bg-white">
+                        <CardHeader>
+                            <CardTitle className={cn("text-primary text-lg", poppins.className)}>
+                                Get in Touch
+                            </CardTitle>
+                            <CardDescription className="text-secondary-foreground">
+                                You can reach us anytime
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4 md:space-y-8">
+                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                                <FormField
+                                    control={form.control}
+                                    name="firstName"
+                                    render={({ field }) => (
+                                        <FormItem className="w-full">
+                                            <FormLabel className="text-primary text-sm font-semibold">
+                                                Fist Name
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="First Name"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="lastName"
+                                    render={({ field }) => (
+                                        <FormItem className="w-full">
+                                            <FormLabel className="text-primary text-sm font-semibold">
+                                                Last Name
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="Last Name"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel className="text-primary text-sm font-semibold">Email</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="Email"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                    </FormItem>
+                                )}
                             />
-                            <input
-                                placeholder="Last name"
-                                name="lastName"
-                                type="text"
-                                className="w-full rounded-xl border p-2 md:px-4 md:py-2"
-                            />
-                        </div>
-                        <input
-                            placeholder="Your email"
-                            name="email"
-                            type="email"
-                            className="w-full rounded-xl border p-2 md:px-4 md:py-2"
-                        />
-                        <div className="h-32 w-full">
-                            <Textarea
-                                placeholder="How can we help?"
-                                className="h-full w-full rounded-xl p-2 md:px-4 md:py-2"
-                            />
-                        </div>
-                    </CardContent>
-                    <CardFooter className="flex items-center gap-2">
-                        <Button
-                            type="submit"
-                            className="cursor-pointer"
-                        >
-                            Send message
-                        </Button>
-                        <Link href="/support/complaints">
+                            <div className="w-full">
+                                <FormField
+                                    control={form.control}
+                                    name="message"
+                                    render={({ field }) => (
+                                        <FormItem className="w-full">
+                                            <FormLabel className="text-primary text-sm font-semibold">
+                                                Message
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Textarea
+                                                    className="max-h-64 min-h-32"
+                                                    placeholder="Your message"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
+                        </CardContent>
+                        <CardFooter className="flex items-center gap-2">
                             <Button
-                                variant="outline"
-                                type="button"
+                                type="submit"
                                 className="cursor-pointer"
                             >
-                                Have a complain?
+                                Send message
                             </Button>
-                        </Link>
-                    </CardFooter>
-                </Card>
-            </form>
+                            <Link href="/support/complaints">
+                                <Button
+                                    variant="outline"
+                                    type="button"
+                                    className="cursor-pointer"
+                                >
+                                    Have a complain?
+                                </Button>
+                            </Link>
+                        </CardFooter>
+                    </Card>
+                </form>
+            </Form>
         </section>
     );
 };
