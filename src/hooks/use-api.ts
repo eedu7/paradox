@@ -10,6 +10,7 @@ export function useAPI() {
     const getComplaint = useQuery({
         queryFn: getComplaints,
         queryKey: ["getComplaints"],
+        staleTime: 600000,
     });
 
     const contact = useMutation({
@@ -17,7 +18,8 @@ export function useAPI() {
     });
     const getContact = useQuery({
         queryFn: getContactsMessage,
-        queryKey: ["getContact"],
+        queryKey: ["getContacts"],
+        staleTime: 600000,
     });
 
     return {

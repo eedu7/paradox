@@ -1,7 +1,6 @@
 import React from "react";
 import { ComplainView } from "@/components/complaint";
 import { Metadata } from "next";
-import { TanstackReactQueryProvider } from "@/lib/TanstackReactQueryProvider";
 import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
@@ -10,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function ComplaintsPage() {
     return (
-        <TanstackReactQueryProvider>
+        <div>
             <ComplainView />
             <Toaster />
-        </TanstackReactQueryProvider>
+        </div>
     );
 }

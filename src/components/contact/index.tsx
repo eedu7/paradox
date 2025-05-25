@@ -7,24 +7,27 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useAPI } from "@/hooks/use-api";
 import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useQueryClient } from "@tanstack/react-query";
 
 const poppins = Poppins({
     weight: ["700"],
     subsets: ["latin"],
 });
 
-// TODO: Add constains also in the complinats as well
 const formSchema = z.object({
-    firstName: z.string(),
-    lastName: z.string(),
-    email: z.string().email(),
-    message: z.string(),
+    firstName: z.string().min(2, "First name must be at least 2 characters").max(50, "Too long"),
+    lastName: z.string().min(2, "Last name must be at least 2 characters").max(50, "Too long"),
+    email: z.string().email("Please enter a valid email address"),
+    message: z
+        .string()
+        .min(10, "Message must be at least 10 characters")
+        .max(1000, "Message can't exceed 1000 characters"),
 });
 
 export const ContactUsView = () => {
@@ -36,13 +39,18 @@ export const ContactUsView = () => {
             email: "",
             message: "",
         },
+        mode: "all",
     });
 
     const { contact } = useAPI();
+    const queryClient = useQueryClient();
 
     const onSubmit = (values: z.infer<typeof formSchema>) => {
         contact.mutate(values, {
             onSuccess: () => {
+                queryClient.invalidateQueries({
+                    queryKey: ["getContacts"],
+                });
                 toast("Message has been delivered", {
                     position: "top-right",
                     style: {
@@ -112,6 +120,7 @@ export const ContactUsView = () => {
                                                     {...field}
                                                 />
                                             </FormControl>
+                                            <FormMessage className="text-sm" />
                                         </FormItem>
                                     )}
                                 />
@@ -129,6 +138,7 @@ export const ContactUsView = () => {
                                                     {...field}
                                                 />
                                             </FormControl>
+                                            <FormMessage className="text-sm" />
                                         </FormItem>
                                     )}
                                 />
@@ -145,6 +155,7 @@ export const ContactUsView = () => {
                                                 {...field}
                                             />
                                         </FormControl>
+                                        <FormMessage className="text-sm" />
                                     </FormItem>
                                 )}
                             />
@@ -164,6 +175,7 @@ export const ContactUsView = () => {
                                                     {...field}
                                                 />
                                             </FormControl>
+                                            <FormMessage className="text-sm" />
                                         </FormItem>
                                     )}
                                 />

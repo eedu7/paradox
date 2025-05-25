@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
 import { useAPI } from "@/hooks/use-api";
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatDate } from "@/lib/formatDateTime";
+import { cn } from "@/lib/utils";
+import { Poppins } from "next/font/google";
 
 type ContactData = {
     id: string;
@@ -12,6 +14,11 @@ type ContactData = {
     message: string;
     createdAt: string;
 };
+
+const poppins = Poppins({
+    weight: ["600"],
+    subsets: ["latin"],
+});
 
 export const DashboardContact = () => {
     const { getContact } = useAPI();
@@ -25,8 +32,13 @@ export const DashboardContact = () => {
                             <p className="text-primary">{data.firstName + " " + data.lastName}</p>
                             <p className="text-secondary-foreground text-sm font-semibold">{data.email}</p>
                         </CardTitle>
-                        <CardDescription>{data.message}</CardDescription>
                     </CardHeader>
+                    <CardContent>
+                        <div className="space-y-1 border-b">
+                            <h2 className={cn(poppins.className, "text-primary text-sm")}>Message</h2>
+                            <p>{data.message}</p>
+                        </div>
+                    </CardContent>
                     <CardFooter className="text-secondary-foreground text-sm">{formatDate(data.createdAt)}</CardFooter>
                 </Card>
             ))}

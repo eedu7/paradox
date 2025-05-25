@@ -13,26 +13,30 @@ import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useAPI } from "@/hooks/use-api";
 import { toast } from "sonner";
+import { useQueryClient } from "@tanstack/react-query";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const formSchema = z.object({
-    name: z.string(),
-    phone: z.string(),
-    date: z.string().date(),
-    personComplainedAgainst: z.string(),
-    incidentDescription: z.string(),
-    expectedResolution: z.string(),
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    phone: z.string().regex(/^\+?\d{10,15}$/, "Invalid phone number format"),
+    date: z.string().refine((val) => !isNaN(Date.parse(val)), {
+        message: "Invalid date format",
+    }),
+    personComplainedAgainst: z.string().min(2, "Please provide a name"),
+    incidentDescription: z.string().min(10, "Description must be at least 10 characters"),
+    expectedResolution: z.string().min(5, "Please describe your expected resolution"),
 });
 
 export const ComplainView = () => {
     const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
             phone: "",
-            date: "",
+            date: `${new Date()}`,
             personComplainedAgainst: "",
             incidentDescription: "",
             expectedResolution: "",
@@ -40,10 +44,12 @@ export const ComplainView = () => {
     });
 
     const { createComplaint } = useAPI();
+    const queryClient = useQueryClient();
 
     const onSubmit = (values: z.infer<typeof formSchema>) => {
         createComplaint.mutate(values, {
             onSuccess: () => {
+                queryClient.invalidateQueries({ queryKey: ["getComplaints"] });
                 toast("Complaint has been filed successfully!", {
                     position: "top-right",
                     style: {
@@ -54,7 +60,7 @@ export const ComplainView = () => {
                 form.reset({
                     name: "",
                     phone: "",
-                    date: "",
+                    date: `${new Date()}`,
                     personComplainedAgainst: "",
                     incidentDescription: "",
                     expectedResolution: "",
@@ -89,6 +95,7 @@ export const ComplainView = () => {
                                                         {...field}
                                                     />
                                                 </FormControl>
+                                                <FormMessage className="text-sm" />
                                             </FormItem>
                                         )}
                                     />
@@ -106,6 +113,7 @@ export const ComplainView = () => {
                                                         {...field}
                                                     />
                                                 </FormControl>
+                                                <FormMessage className="text-sm" />
                                             </FormItem>
                                         )}
                                     />
@@ -154,6 +162,7 @@ export const ComplainView = () => {
                                                         </PopoverContent>
                                                     </Popover>
                                                 </FormControl>
+                                                <FormMessage className="text-sm" />
                                             </FormItem>
                                         )}
                                     />
@@ -172,6 +181,7 @@ export const ComplainView = () => {
                                                     {...field}
                                                 />
                                             </FormControl>
+                                            <FormMessage className="text-sm" />
                                         </FormItem>
                                     )}
                                 />
@@ -190,6 +200,7 @@ export const ComplainView = () => {
                                                     {...field}
                                                 />
                                             </FormControl>
+                                            <FormMessage className="text-sm" />
                                         </FormItem>
                                     )}
                                 />{" "}
@@ -208,6 +219,7 @@ export const ComplainView = () => {
                                                     {...field}
                                                 />
                                             </FormControl>
+                                            <FormMessage className="text-sm" />
                                         </FormItem>
                                     )}
                                 />

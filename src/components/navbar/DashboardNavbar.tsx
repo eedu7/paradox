@@ -17,7 +17,9 @@ export const DashboardNavbar = () => {
     const pathname = usePathname();
     return (
         <nav className="flex items-center justify-between p-1 md:gap-x-4 md:p-4">
-            <h1 className={cn(poppins.className, "text-xl")}>DEA - Bahawalpur</h1>
+            <Link href="/">
+                <h1 className={cn(poppins.className, "text-xl")}>DEA - Bahawalpur</h1>
+            </Link>
             <div className="space-x-2">
                 <Link href="/admin/dashboard/complaints">
                     <Button
@@ -28,9 +30,9 @@ export const DashboardNavbar = () => {
                         Complaints
                     </Button>
                 </Link>
-                <Link href="/admin/dashboard/contacts">
+                <Link href="/admin/dashboard/messages">
                     <Button
-                        variant={pathname === "/admin/dashboard/contacts" ? "default" : "outline"}
+                        variant={pathname === "/admin/dashboard/messages" ? "default" : "outline"}
                         className="cursor-pointer"
                         size={mobile ? "sm" : "default"}
                     >
