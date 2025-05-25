@@ -2,17 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma-client";
 
 type RequestBody = {
-    name: string;
-    phone: string;
-    date: string;
-    personComplainedAgainst: string;
-    incidentDescription: string;
-    expectedResolution: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    message: string;
 };
 
 export async function GET() {
     try {
-        const data = await prisma.complaint.findMany();
+        const data = await prisma.contact.findMany();
         return NextResponse.json(data);
     } catch (error) {
         return NextResponse.json(
@@ -30,14 +28,16 @@ export async function POST(req: NextRequest) {
     try {
         const body: RequestBody = await req.json();
 
-        await prisma.complaint.create({
+        console.log("Contact API is being called");
+
+        await prisma.contact.create({
             data: {
                 ...body,
             },
         });
 
         return NextResponse.json({
-            message: "Successfully created a complaint.",
+            message: "Successfully created a contact message.",
         });
     } catch (error) {
         return NextResponse.json(

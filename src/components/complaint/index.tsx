@@ -39,12 +39,18 @@ export const ComplainView = () => {
         },
     });
 
-    const { complaint } = useAPI();
+    const { createComplaint } = useAPI();
 
     const onSubmit = (values: z.infer<typeof formSchema>) => {
-        complaint.mutate(values, {
+        createComplaint.mutate(values, {
             onSuccess: () => {
-                toast("Complaint has been filed successfully!");
+                toast("Complaint has been filed successfully!", {
+                    position: "top-right",
+                    style: {
+                        borderColor: "green",
+                        color: "green",
+                    },
+                });
                 form.reset({
                     name: "",
                     phone: "",
@@ -210,9 +216,9 @@ export const ComplainView = () => {
                                 <Button
                                     type="submit"
                                     className="cursor-pointer"
-                                    disabled={complaint.isPending}
+                                    disabled={createComplaint.isPending}
                                 >
-                                    {complaint.isPending ? (
+                                    {createComplaint.isPending ? (
                                         <div className="flex w-full items-center justify-center">
                                             <Loader className="repeat-infinite animate-spin" />
                                         </div>
@@ -225,7 +231,7 @@ export const ComplainView = () => {
                                         variant="outline"
                                         type="button"
                                         className="cursor-pointer"
-                                        disabled={complaint.isPending}
+                                        disabled={createComplaint.isPending}
                                     >
                                         Contact us?
                                     </Button>

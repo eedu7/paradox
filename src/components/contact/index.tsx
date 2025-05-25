@@ -10,13 +10,16 @@ import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useAPI } from "@/hooks/use-api";
+import { toast } from "sonner";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const poppins = Poppins({
     weight: ["700"],
     subsets: ["latin"],
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// TODO: Add constains also in the complinats as well
 const formSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
@@ -26,6 +29,7 @@ const formSchema = z.object({
 
 export const ContactUsView = () => {
     const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
         defaultValues: {
             firstName: "",
             lastName: "",
@@ -34,8 +38,27 @@ export const ContactUsView = () => {
         },
     });
 
+    const { contact } = useAPI();
+
     const onSubmit = (values: z.infer<typeof formSchema>) => {
-        alert(JSON.stringify(values));
+        contact.mutate(values, {
+            onSuccess: () => {
+                toast("Message has been delivered", {
+                    position: "top-right",
+                    style: {
+                        borderColor: "green",
+                        color: "green",
+                    },
+                });
+            },
+        });
+
+        form.reset({
+            firstName: "",
+            lastName: "",
+            email: "",
+            message: "",
+        });
     };
 
     return (
