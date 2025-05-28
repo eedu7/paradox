@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,8 @@ import { usePathname } from "next/navigation";
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { AuthButton } from "@/components/navbar/AuthButton";
+import { useSession } from "next-auth/react";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -15,6 +18,9 @@ const poppins = Poppins({
 export const DashboardNavbar = () => {
     const mobile: boolean = useIsMobile();
     const pathname = usePathname();
+
+    const session = useSession();
+
     return (
         <nav className="flex items-center justify-between p-1 md:gap-x-4 md:p-4">
             <Link href="/">
@@ -39,6 +45,7 @@ export const DashboardNavbar = () => {
                         Messages
                     </Button>
                 </Link>
+                {session.status === "authenticated" && <AuthButton />}
             </div>
         </nav>
     );

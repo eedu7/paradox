@@ -1,13 +1,17 @@
+"use client";
 import React from "react";
-import { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { DashboardNavbar } from "@/components/navbar/DashboardNavbar";
-
-export const metadata: Metadata = {
-    title: "Dashboard",
-};
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
+    const session = useSession();
+
+    if (session.status === "unauthenticated") {
+        redirect("/admin/login");
+    }
+
     return (
         <div className="flex min-h-screen flex-col">
             <div className="w-full border-b">

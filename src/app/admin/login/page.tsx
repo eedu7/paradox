@@ -24,8 +24,8 @@ export default function LoginPage() {
             <section className="flex h-full flex-1 items-center justify-center">
                 <Card>
                     <CardHeader>
-                        <CardTitle></CardTitle>
-                        <CardDescription></CardDescription>
+                        <CardTitle>Sign in to your account</CardTitle>
+                        <CardDescription>Enter your email and password below to access the dashboard.</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <form
