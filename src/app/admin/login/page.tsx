@@ -22,7 +22,7 @@ export default function LoginPage() {
                 </div>
             </div>
             <section className="flex h-full flex-1 items-center justify-center">
-                <Card>
+                <Card className="w-[350px]">
                     <CardHeader>
                         <CardTitle>Sign in to your account</CardTitle>
                         <CardDescription>Enter your email and password below to access the dashboard.</CardDescription>
@@ -33,22 +33,28 @@ export default function LoginPage() {
                                 "use server";
                                 await signIn("credentials", formData);
                             }}
+                            className="space-y-4"
                         >
-                            <div>
-                                <Label>Email</Label>
+                            <div className="space-y-1">
+                                <Label className="text-primary text-sm font-semibold">Email</Label>
                                 <Input
                                     name="email"
                                     type="email"
                                 />
                             </div>
-                            <div>
-                                <Label>Password</Label>
+                            <div className="space-y-1">
+                                <Label className="text-primary text-sm font-semibold">Password</Label>
                                 <Input
                                     name="password"
                                     type="password"
                                 />
                             </div>
-                            <Button type="submit">Sign In</Button>
+                            <Button
+                                type="submit"
+                                className="w-full"
+                            >
+                                Sign In
+                            </Button>
                         </form>
                     </CardContent>
                 </Card>

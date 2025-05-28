@@ -9,6 +9,9 @@ import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { AuthButton } from "@/components/navbar/AuthButton";
 import { useSession } from "next-auth/react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { MenuSquareIcon } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -26,7 +29,40 @@ export const DashboardNavbar = () => {
             <Link href="/">
                 <h1 className={cn(poppins.className, "text-xl")}>DEA - Bahawalpur</h1>
             </Link>
-            <div className="space-x-2">
+            <div className="flex md:hidden">
+                <Sheet>
+                    <SheetHeader>
+                        <SheetTrigger>
+                            <MenuSquareIcon />
+                        </SheetTrigger>
+                    </SheetHeader>
+                    <SheetContent className="p-2">
+                        <SheetTitle>Admin - Navigation Links</SheetTitle>
+                        <Separator />
+                        <div className="flex flex-col gap-y-4">
+                            <Link
+                                href="/admin/dashboard/complaints"
+                                className="w-full underline"
+                            >
+                                Complaints
+                            </Link>
+                            <Link
+                                href="/admin/dashboard/messages"
+                                className="w-full underline"
+                            >
+                                Messages
+                            </Link>
+                            {session.status === "unauthenticated" && (
+                                <>
+                                    <Separator className="mt-4 mb-2" />
+                                    <AuthButton />
+                                </>
+                            )}
+                        </div>
+                    </SheetContent>
+                </Sheet>
+            </div>
+            <div className="hidden space-x-2 md:block">
                 <Link href="/admin/dashboard/complaints">
                     <Button
                         variant={pathname === "/admin/dashboard/complaints" ? "default" : "outline"}
