@@ -21,22 +21,22 @@ import BannerImage4 from "../../public/assets/images/banner/image-4.jpg";
 
 export const bannerImages = [BannerImage1, BannerImage2, BannerImage3, BannerImage4];
 
-export const galleryImages: StaticImageData[] = [
-    ChiefExecutiveOfficerDEABahawalpurImage,
-    OurMissionImage,
-    VisionImage,
-    PBSAObjectiveImage,
-    FirstChiefScoutOfPakistanImage,
-    PrideOfPakistanImage,
-    KashmirSolidarityDayImage,
-    AnnualSportsGalaImage,
-    JashnStemPakistanImage,
-    StemCompetitionImage,
-    PrizeDistributionImage,
-    BannerImage1,
-    BannerImage2,
-    BannerImage3,
-    BannerImage4,
+export const galleryImages: { image: StaticImageData; alt: string }[] = [
+    { image: ChiefExecutiveOfficerDEABahawalpurImage, alt: "Chief Executive Officer DEA Bahawalpur" },
+    { image: OurMissionImage, alt: "Our Mission" },
+    { image: VisionImage, alt: "Our Vision" },
+    { image: PBSAObjectiveImage, alt: "PBSA Objectives" },
+    { image: FirstChiefScoutOfPakistanImage, alt: "First Chief Scout of Pakistan" },
+    { image: PrideOfPakistanImage, alt: "Pride of Pakistan" },
+    { image: KashmirSolidarityDayImage, alt: "Kashmir Solidarity Day" },
+    { image: AnnualSportsGalaImage, alt: "Annual Sports Gala" },
+    { image: JashnStemPakistanImage, alt: "Jashn STEM Pakistan" },
+    { image: StemCompetitionImage, alt: "STEM Competition" },
+    { image: PrizeDistributionImage, alt: "Prize Distribution Ceremony" },
+    { image: BannerImage1, alt: "Banner Image 1" },
+    { image: BannerImage2, alt: "Banner Image 2" },
+    { image: BannerImage3, alt: "Banner Image 3" },
+    { image: BannerImage4, alt: "Banner Image 4" },
 ];
 
 export {
