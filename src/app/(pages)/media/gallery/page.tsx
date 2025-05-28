@@ -1,5 +1,10 @@
 import React from "react";
 import { Gallery } from "@/components/gallery";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Gallery - DEA Bahawalpur",
+};
 
 export default function GalleryPage() {
     return (

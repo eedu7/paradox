@@ -1,5 +1,10 @@
 import React from "react";
 import { Notification } from "@/components/notification";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Notifications - DEA Bahawalpur",
+};
 
 export default function NotificationPage() {
     return (

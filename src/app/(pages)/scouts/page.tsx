@@ -1,5 +1,10 @@
 import React from "react";
 import { ScoutsBlog } from "@/components/scouts-blog";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Scouts - DEA Bahawalpur",
+};
 
 export default function ScoutsPage() {
     return (

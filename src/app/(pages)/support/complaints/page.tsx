@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TanstackReactQueryProvider } from "@/lib/TanstackReactQueryProvider";
 
 export const metadata: Metadata = {
-    title: "Complain",
+    title: "Complaints - DEA Bahawalpur",
 };
 
 export default function ComplaintsPage() {

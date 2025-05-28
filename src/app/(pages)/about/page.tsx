@@ -1,5 +1,10 @@
 import React from "react";
 import { Message } from "@/components/message";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About - DEA Bahawalpur",
+};
 
 export default function AboutPage() {
     return (
