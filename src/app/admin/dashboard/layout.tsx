@@ -1,10 +1,10 @@
 import React from "react";
 import { Footer } from "@/components/footer";
 import { DashboardNavbar } from "@/components/navbar/DashboardNavbar";
-import { getSession } from "next-auth/react";
+import { auth } from "@/auth";
 
 export default async function Dashboard({ children }: { children: React.ReactNode }) {
-    const session = await getSession();
+    const session = await auth();
 
     if (!session?.user) return null;
 
