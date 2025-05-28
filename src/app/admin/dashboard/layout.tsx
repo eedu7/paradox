@@ -2,17 +2,17 @@
 import React from "react";
 import { Footer } from "@/components/footer";
 import { DashboardNavbar } from "@/components/navbar/DashboardNavbar";
-import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+// import { useSession } from "next-auth/react";
+// import { redirect } from "next/navigation";
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
-    const session = useSession();
-
-    React.useEffect(() => {
-        if (session.status === "unauthenticated") {
-            redirect("/admin/login");
-        }
-    }, [session]);
+    // const session = useSession();
+    //
+    // React.useEffect(() => {
+    //     if (session.status === "unauthenticated") {
+    //         redirect("/admin/login");
+    //     }
+    // }, [session]);
 
     return (
         <div className="flex min-h-screen flex-col">
