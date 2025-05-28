@@ -19,6 +19,15 @@ import BannerImage2 from "../../public/assets/images/banner/image-2.jpg";
 import BannerImage3 from "../../public/assets/images/banner/image-3.jpg";
 import BannerImage4 from "../../public/assets/images/banner/image-4.jpg";
 
+// Team
+// DEO
+import MukhtarAhmadImage from "../../public/assets/images/team/deo/mukhtar-ahmad.jpg";
+
+// Deputy DEO
+import KhalidNaveedImage from "../../public/assets/images/team/deputy-deo/khaliq-naveed.jpg";
+import ToheedQamarImage from "../../public/assets/images/team/deputy-deo/toheed-qamar.jpg";
+import AbdulRaufSipraImage from "../../public/assets/images/team/deputy-deo/abdul-rauf-sipra.jpg";
+
 export const bannerImages = [BannerImage1, BannerImage2, BannerImage3, BannerImage4];
 
 export const galleryImages: { image: StaticImageData; alt: string }[] = [
@@ -37,6 +46,10 @@ export const galleryImages: { image: StaticImageData; alt: string }[] = [
     { image: BannerImage2, alt: "Banner Image 2" },
     { image: BannerImage3, alt: "Banner Image 3" },
     { image: BannerImage4, alt: "Banner Image 4" },
+    { image: MukhtarAhmadImage, alt: "DEO - Mukhtar Ahmad" },
+    { image: KhalidNaveedImage, alt: "Deputy DEO - Khalid Naveed" },
+    { image: ToheedQamarImage, alt: "Deputy DEO - Toheed Qamar" },
+    { image: AbdulRaufSipraImage, alt: "Deputy DEO - Abdul Rauf Sipra" },
 ];
 
 export {
