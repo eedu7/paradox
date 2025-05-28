@@ -32,14 +32,8 @@ export default function LoginPage() {
                         <form
                             action={async (formData) => {
                                 "use server";
-                                await signIn("credentials", formData)
-                                    .then(() => {
-                                        console.log("Login successful!");
-                                        redirect("/admin/dashboard/messages");
-                                    })
-                                    .catch((error) => {
-                                        console.error("Login failed!", error);
-                                    });
+                                await signIn("credentials", formData);
+                                redirect("/admin/dashboard/messages");
                             }}
                             className="space-y-4"
                         >
