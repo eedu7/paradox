@@ -39,7 +39,7 @@ export const HomeCEOMessage = () => {
                             </div>
                         </div>
                     </CardHeader>
-                    <CardContent className="space-y-4 text-justify text-sm md:text-base">
+                    <CardContent className="text-accent-foreground space-y-4 text-justify text-sm md:text-base">
                         <p>
                             Education is the powerful tool for every field of life. All the developed nations are using
                             it intelligently. After 75 years, our beloved country is still behind but at the same time

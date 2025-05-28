@@ -16,7 +16,7 @@ export const PemMessage = () => {
                     A Message from Punjab Education Minister Rana Sikandar Hayat
                 </h1>
                 <p className="text-accent-foreground text-center text-sm md:text-lg">
-                    The Education Minister shares his and the Chief Minister’s vision to improve Punjab's education
+                    The Education Minister shares his and the Chief Minister’s vision to improve Punjab&apos;s education
                     system through public engagement, recognizing excellent educators, addressing challenges, and
                     encouraging community contributions for better infrastructure and IT facilities.
                 </p>
