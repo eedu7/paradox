@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { hashPassword } from "@/lib/password";
 import { prisma } from "@/lib/prisma-client";
+import { comparePassword } from "@/lib/password";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -19,21 +19,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 },
             },
             authorize: async (credentials) => {
-                let user = null;
-
-                const pwHash = await hashPassword(credentials.password as string);
-
-                user = await prisma.user.findUnique({
+                const user = await prisma.user.findUnique({
                     where: {
                         email: credentials.email as string,
-                        password: pwHash,
                     },
                 });
 
                 if (!user) {
                     throw new Error("Invalid credentials");
                 }
-                return user;
+
+                const isValid = await comparePassword(credentials.password as string, user.password);
+
+                if (!isValid) {
+                    throw new Error("Invalid credentials");
+                }
+
+                return {
+                    id: user.id,
+                    email: user.email,
+                    name: user.name,
+                };
             },
         }),
     ],

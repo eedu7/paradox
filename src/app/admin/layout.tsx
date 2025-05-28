@@ -1,5 +1,6 @@
 import React from "react";
+import { TanstackReactQueryProvider } from "@/lib/TanstackReactQueryProvider";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-    return <div>{children}</div>;
+    return <TanstackReactQueryProvider>{children}</TanstackReactQueryProvider>;
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { TanstackReactQueryProvider } from "@/lib/TanstackReactQueryProvider";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -24,9 +23,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <TanstackReactQueryProvider>{children}</TanstackReactQueryProvider>
-            </body>
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
         </html>
     );
 }
