@@ -1,7 +1,9 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { prisma } from "@/lib/prisma-client";
+import { db } from "@/db";
+import { users } from "@/db/schema";
 import { comparePassword } from "@/lib/password";
+import { eq } from "drizzle-orm";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -19,11 +21,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 },
             },
             authorize: async (credentials) => {
-                const user = await prisma.user.findUnique({
-                    where: {
-                        email: credentials.email as string,
-                    },
-                });
+                if (!credentials?.email || !credentials?.password) {
+                    throw new Error("Missing email or password");
+                }
+
+                const user = await db
+                    .select()
+                    .from(users)
+                    .where(eq(users.email, credentials.email as string))
+                    .then((res) => res[0]);
 
                 if (!user) {
                     throw new Error("Invalid credentials");
