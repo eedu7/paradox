@@ -22,7 +22,7 @@ export const DashboardNavbar = () => {
     const mobile: boolean = useIsMobile();
     const pathname = usePathname();
 
-    const session = useSession();
+    const { status } = useSession();
 
     return (
         <nav className="flex items-center justify-between p-1 md:gap-x-4 md:p-4">
@@ -52,7 +52,7 @@ export const DashboardNavbar = () => {
                             >
                                 Messages
                             </Link>
-                            {session.status === "authenticated" && (
+                            {status === "authenticated" && (
                                 <>
                                     <Separator className="mt-4 mb-2" />
                                     <AuthButton />
@@ -81,7 +81,7 @@ export const DashboardNavbar = () => {
                         Messages
                     </Button>
                 </Link>
-                {session.status === "authenticated" && <AuthButton />}
+                {status === "authenticated" && <AuthButton />}
             </div>
         </nav>
     );
