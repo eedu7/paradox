@@ -32,8 +32,9 @@ export default function LoginPage() {
                         <form
                             action={async (formData) => {
                                 "use server";
-                                await signIn("credentials", formData);
-                                redirect("/admin/dashboard/messages");
+                                await signIn("credentials", formData).finally(() => {
+                                    redirect("/admin/dashboard/messages");
+                                });
                             }}
                             className="space-y-4"
                         >
