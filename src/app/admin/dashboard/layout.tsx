@@ -8,9 +8,11 @@ import { redirect } from "next/navigation";
 export default function Dashboard({ children }: { children: React.ReactNode }) {
     const session = useSession();
 
-    if (session.status === "unauthenticated") {
-        redirect("/admin/login");
-    }
+    React.useEffect(() => {
+        if (session.status === "unauthenticated") {
+            redirect("/admin/login");
+        }
+    }, [session]);
 
     return (
         <div className="flex min-h-screen flex-col">

@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { signIn } from "@/auth";
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
     title: "Login - Dashboard",
@@ -31,7 +32,14 @@ export default function LoginPage() {
                         <form
                             action={async (formData) => {
                                 "use server";
-                                await signIn("credentials", formData);
+                                await signIn("credentials", formData)
+                                    .then(() => {
+                                        console.log("Login successful!");
+                                        redirect("/admin/dashboard/messages");
+                                    })
+                                    .catch((error) => {
+                                        console.error("Login failed!", error);
+                                    });
                             }}
                             className="space-y-4"
                         >

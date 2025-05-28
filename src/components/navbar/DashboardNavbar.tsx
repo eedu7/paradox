@@ -26,6 +26,7 @@ export const DashboardNavbar = () => {
 
     return (
         <nav className="flex items-center justify-between p-1 md:gap-x-4 md:p-4">
+            <pre>{session.status}</pre>
             <Link href="/">
                 <h1 className={cn(poppins.className, "text-xl")}>DEA - Bahawalpur</h1>
             </Link>
@@ -52,7 +53,7 @@ export const DashboardNavbar = () => {
                             >
                                 Messages
                             </Link>
-                            {session.status === "unauthenticated" && (
+                            {session.status === "authenticated" && (
                                 <>
                                     <Separator className="mt-4 mb-2" />
                                     <AuthButton />
