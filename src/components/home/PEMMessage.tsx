@@ -23,7 +23,7 @@ export const PemMessage = () => {
             </div>
             <div className="flex items-center justify-center">
                 <iframe
-                    className="h-48 w-96 md:h-[24rem] md:w-[44rem]"
+                    className="h-48 w-72 md:h-[24rem] md:w-[44rem]"
                     src="https://www.youtube.com/embed/7NrTVcRwpaI?si=yjC4jTZT-G4jDoYO"
                     title="YouTube video player"
                     frameBorder="0"
