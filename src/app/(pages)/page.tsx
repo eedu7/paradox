@@ -2,6 +2,7 @@ import { HomeCarousel } from "@/components/home/HomeCarousel";
 import { PemMessage } from "@/components/home/PEMMessage";
 import { HomeCEOMessage } from "@/components/home/CEOMessage";
 import { HomeInitiatives } from "@/components/home/HomeInitiatives";
+import { HomeHowWeWork } from "@/components/home/HomeHowWeWork";
 
 export default function HomePage() {
     return (
@@ -23,6 +24,11 @@ export default function HomePage() {
             <section className="bg-accent py-12">
                 <div className="mx-auto max-w-7xl">
                     <HomeInitiatives />
+                </div>
+            </section>
+            <section className="flex min-h-96 items-center justify-center">
+                <div className="mx-auto max-w-7xl">
+                    <HomeHowWeWork />
                 </div>
             </section>
         </div>
