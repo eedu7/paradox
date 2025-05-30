@@ -13,9 +13,11 @@ export const HomeHowWeWork = () => {
     return (
         <div className="space-y-16">
             <div>
-                <h1 className={cn("text-primary text-center text-2xl md:text-4xl", poppins.className)}>
-                    Initiatives by the School Education Department (SED), South Punjab
-                </h1>
+                <div className="mx-auto max-w-3xl">
+                    <h1 className={cn("text-primary text-center text-2xl md:text-4xl", poppins.className)}>
+                        Initiatives by the School Education Department (SED), South Punjab
+                    </h1>
+                </div>
             </div>
             <div className="grid grid-cols-1 gap-2 p-2 md:grid-cols-2 lg:grid-cols-3">
                 {homeTrainingPrograms.map(({ icon: Icon, title, description }, index) => (

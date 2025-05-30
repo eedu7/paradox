@@ -12,13 +12,13 @@ const poppins = Poppins({
 export const HomeInitiatives = () => {
     return (
         <div className="space-y-8">
-            <div>
+            <div className="mx-auto max-w-3xl">
                 <h1 className={cn("text-primary text-center text-2xl md:text-4xl", poppins.className)}>
                     Initiatives by the School Education Department (SED), South Punjab
                 </h1>
             </div>
 
-            <div className="grid grid-cols-1 gap-2 p-2 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-3 lg:grid-cols-4">
                 {homeInitiativesData.map(({ title, description, icon: Icon }, index) => (
                     <Card key={index}>
                         <CardHeader>
